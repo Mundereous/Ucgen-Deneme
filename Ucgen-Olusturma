@@ -1,0 +1,26 @@
+import random
+import time
+
+start_time = time.time() #Süreyi Başlatma
+total_count = 1000000
+başarıyla_oluşan_üçgen_sayısı = 0
+
+for _ in range(total_count):
+    a = random.random() * 100
+    b = random.random() * 100
+    parça_3 = abs(a - b)
+    parça_1 = min(a, b)
+    parça_2 = 100 - max(a, b)
+    
+    if parça_3 < parça_1 + parça_2 and parça_1 < parça_2 + parça_3 and parça_2 < parça_1 + parça_3:
+        başarıyla_oluşan_üçgen_sayısı += 1
+
+
+end_time = time.time() #Süreyi Bitirme
+geçen_zaman = end_time - start_time
+
+başarı_oranı = (başarıyla_oluşan_üçgen_sayısı / 1000000) * 100
+
+print("Başarıyla Oluşan Üçgen Sayısı:", başarıyla_oluşan_üçgen_sayısı)
+print("Başarıyla Oluşan Üçgen Yüzdesi: %", başarı_oranı)
+print("Geçen Zaman:", geçen_zaman) 
